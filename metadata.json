@@ -1,0 +1,6 @@
+{
+  "name": "Our First Month ♡ — A Romantic Interactive Love Letter",
+  "description": "An interactive romantic anniversary diary and love letter celebrating our first month together with 3D diary animations, secret letter code, emotional pages, and music.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
