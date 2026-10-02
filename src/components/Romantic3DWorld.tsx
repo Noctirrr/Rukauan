@@ -208,9 +208,9 @@ export const Romantic3DWorld: React.FC<Romantic3DWorldProps> = ({ intensity = 'n
 
     // Animation Loop
     let animationFrameId: number;
-    let clock = new THREE.Clock();
+    const startTime = performance.now();
 
-    const animate = () => {
+    const animate = (currentTime: number) => {
       animationFrameId = requestAnimationFrame(animate);
 
       if (prefersReducedMotion) {
@@ -218,7 +218,7 @@ export const Romantic3DWorld: React.FC<Romantic3DWorldProps> = ({ intensity = 'n
         return;
       }
 
-      const elapsed = clock.getElapsedTime();
+      const elapsed = (currentTime - startTime) * 0.001;
 
       // Camera parallax lerp
       currentMouseX += (targetMouseX - currentMouseX) * 0.03;
@@ -257,7 +257,7 @@ export const Romantic3DWorld: React.FC<Romantic3DWorldProps> = ({ intensity = 'n
       }
     };
 
-    animate();
+    animationFrameId = requestAnimationFrame(animate);
 
     // Cleanup
     return () => {
