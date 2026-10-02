@@ -107,7 +107,7 @@ export const loveContent: LoveContentConfig = {
 
   // Audio player configuration
   audio: {
-    src: "/audio/piano.mp3",
+    src: "./audio/piano.mp3",
     title: "Romantic Piano Melody",
     artist: "Written for You",
     fallbackDescription: "เสียงเปียโนบรรเลงเบา ๆ เสริมบรรยากาศสุดโรแมนติก",
