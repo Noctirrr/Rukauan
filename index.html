@@ -1,21 +1,716 @@
 <!doctype html>
-<html lang="th">
+<html lang="th" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Our First Month ♡ — A Romantic Interactive Love Letter</title>
-    <meta name="description" content="An interactive romantic anniversary diary and love letter celebrating our first month together with 3D diary animations, secret letter code, emotional pages, and music." />
-    <meta property="og:title" content="Our First Month ♡ — A Romantic Interactive Love Letter" />
-    <meta property="og:description" content="An interactive romantic anniversary diary and love letter celebrating our first month together with 3D diary animations, secret letter code, emotional pages, and music." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Favorite Person</title>
+    <meta name="description" content="เค้าขอให้เธอหายไวๆ นะคะ คนเก่งของเค้า - มอบให้เธอด้วยความห่วงใยและรักทั้งหมดที่มี" />
+    <meta property="og:title" content="For My Favorite Person" />
+    <meta property="og:description" content="เค้าขอให้เธอหายไวๆ นะคะ คนเก่งของเค้า - มอบให้เธอด้วยความห่วงใยและรักทั้งหมดที่มี" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Serif+Thai:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              prompt: ['Prompt', 'Noto Sans Thai', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        --font-prompt: 'Prompt', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body {
+        font-family: var(--font-prompt);
+        background-color: #FAF8F5;
+        color: #2C2426;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      @keyframes floatOrb1 {
+        0%, 100% { transform: translate(0px, 0px) scale(1); }
+        33% { transform: translate(35px, -50px) scale(1.08); }
+        66% { transform: translate(-25px, 30px) scale(0.95); }
+      }
+      @keyframes floatOrb2 {
+        0%, 100% { transform: translate(0px, 0px) scale(1); }
+        33% { transform: translate(-45px, 40px) scale(1.06); }
+        66% { transform: translate(30px, -25px) scale(0.92); }
+      }
+      @keyframes floatOrb3 {
+        0%, 100% { transform: translate(0px, 0px) scale(1); }
+        50% { transform: translate(25px, 45px) scale(1.1); }
+      }
+      @keyframes softGlow {
+        0%, 100% { opacity: 0.45; filter: blur(75px); }
+        50% { opacity: 0.75; filter: blur(95px); }
+      }
+      .animate-float-1 { animation: floatOrb1 18s ease-in-out infinite; }
+      .animate-float-2 { animation: floatOrb2 22s ease-in-out infinite; }
+      .animate-float-3 { animation: floatOrb3 26s ease-in-out infinite; }
+      .animate-soft-glow { animation: softGlow 8s ease-in-out infinite; }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        box-shadow: 0 20px 50px -12px rgba(220, 195, 202, 0.28), 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.58);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        box-shadow: 0 16px 40px -10px rgba(210, 185, 192, 0.22), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .glass-card:hover {
+        background: rgba(255, 255, 255, 0.85);
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 26px 60px -15px rgba(200, 170, 178, 0.32), 0 0 20px 0 rgba(247, 215, 222, 0.35);
+      }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #FAF8F5; }
+      ::-webkit-scrollbar-thumb { background: #E8D9DE; border-radius: 9999px; }
+      ::-webkit-scrollbar-thumb:hover { background: #D8C3CA; }
+    </style>
   </head>
-  <body class="bg-[#faf5f5] text-[#4a3b3f] antialiased selection:bg-rose-200 selection:text-rose-900 overflow-x-hidden">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="bg-[#FAF8F5] text-[#2C2426] antialiased selection:bg-[#F3D5DC] selection:text-[#38262A] relative min-h-screen">
+    
+    <div id="ambient-bg" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden select-none" aria-hidden="true">
+      <div class="absolute inset-0 bg-[#FAF8F5]"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#FFFDFB] via-[#FAF6F3] to-[#FBF4F5] opacity-90"></div>
+      <div class="animate-float-1 absolute -top-20 -left-20 h-[520px] w-[520px] rounded-full opacity-65 blur-[110px]"
+        style="background: radial-gradient(circle, rgba(254, 226, 233, 0.9) 0%, rgba(253, 235, 239, 0.45) 60%, transparent 80%);"></div>
+      <div class="animate-float-2 absolute top-1/4 -right-24 h-[580px] w-[580px] rounded-full opacity-60 blur-[120px]"
+        style="background: radial-gradient(circle, rgba(246, 235, 222, 0.95) 0%, rgba(250, 241, 232, 0.45) 60%, transparent 85%);"></div>
+      <div class="animate-float-3 absolute bottom-1/4 left-1/10 h-[480px] w-[480px] rounded-full opacity-55 blur-[105px]"
+        style="background: radial-gradient(circle, rgba(253, 222, 229, 0.85) 0%, rgba(250, 232, 236, 0.4) 65%, transparent 80%);"></div>
+      <div class="animate-float-1 absolute -bottom-24 -right-16 h-[540px] w-[540px] rounded-full opacity-65 blur-[125px]"
+        style="background: radial-gradient(circle, rgba(247, 237, 225, 0.9) 0%, rgba(253, 246, 240, 0.5) 60%, transparent 80%);"></div>
+      <div class="animate-soft-glow absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[640px] w-[640px] rounded-full"
+        style="background: radial-gradient(circle, rgba(255, 243, 246, 0.75) 0%, rgba(255, 248, 243, 0.35) 50%, transparent 75%);"></div>
+      <div id="mouse-glow" class="absolute h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-[130px] transition-all duration-700 ease-out"
+        style="left: 50%; top: 30%; background: radial-gradient(circle, rgba(252, 218, 226, 0.8) 0%, rgba(250, 233, 222, 0.3) 60%, transparent 80%);"></div>
+    </div>
+
+    <header class="sticky top-0 z-50 w-full border-b border-white/40 bg-[#FAF8F5]/65 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-8 px-6 py-4 sm:px-8">
+        <a href="#hero" class="group flex items-center gap-2.5 text-left shrink-0 no-underline">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#F6E5E9] text-[#A65B6E] transition-transform duration-300 group-hover:scale-105">
+            <svg class="h-3.5 w-3.5 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </span>
+          <span class="text-sm font-medium tracking-tight text-[#3A2D31] transition-colors group-hover:text-[#A65B6E] whitespace-nowrap">
+            For My Favorite Person
+          </span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-7 text-xs font-medium tracking-wide text-[#756468]">
+          <a href="#hero" class="transition-colors hover:text-[#2C2426] whitespace-nowrap no-underline">หน้าแรก</a>
+          <a href="#message" class="transition-colors hover:text-[#2C2426] whitespace-nowrap no-underline">มีอะไรอยากบอก</a>
+          <a href="#promises" class="transition-colors hover:text-[#2C2426] whitespace-nowrap no-underline">ความห่วงใย</a>
+          <a href="#letter" class="transition-colors hover:text-[#2C2426] whitespace-nowrap no-underline">จดหมายจากเค้า</a>
+        </nav>
+
+        <div class="flex items-center gap-3 shrink-0">
+          <button id="audio-toggle-btn" type="button" class="group flex items-center gap-2 rounded-full border border-[#EDE2E5] bg-white/70 px-3.5 py-1.5 text-xs font-medium text-[#68575B] shadow-xs backdrop-blur-md transition-all duration-300 hover:border-[#DEC5CB] hover:bg-white hover:text-[#38262A] active:scale-95 cursor-pointer">
+            <span id="audio-icon" class="relative flex h-3.5 w-3.5 items-center justify-center">
+              <svg class="h-3.5 w-3.5 text-[#9E9094]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+            </span>
+            <span id="audio-label" class="tracking-wide">เปิดเสียงบรรเลง</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative z-10 flex flex-col items-center">
+      <section id="hero" class="relative flex min-h-[calc(100vh-65px)] w-full max-w-4xl flex-col items-center justify-center px-6 py-20 text-center sm:px-8">
+        <div class="animate-soft-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[420px] w-[420px] rounded-full pointer-events-none -z-10"
+          style="background: radial-gradient(circle, rgba(254, 226, 233, 0.7) 0%, rgba(246, 235, 222, 0.3) 60%, transparent 80%);"></div>
+
+        <div class="inline-flex items-center gap-2 rounded-full border border-[#EFE0E4] bg-white/70 px-4 py-1.5 text-xs font-medium tracking-widest text-[#9C6572] uppercase shadow-xs backdrop-blur-md">
+          <svg class="h-3 w-3 text-[#9C6572]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l2.4 7.2h7.6l-6.1 4.5 2.3 7.3-6.2-4.6-6.2 4.6 2.3-7.3-6.1-4.5h7.6z"/>
+          </svg>
+          <span>For My Favorite Person</span>
+        </div>
+
+        <h1 class="mt-8 text-3xl font-semibold tracking-tight text-[#2B2325] sm:text-5xl md:text-6xl sm:leading-[1.28]" style="text-wrap: balance;">
+          <span class="block">เค้าขอให้เธอหายไวๆ นะคะ</span>
+          <span class="mt-2 block bg-gradient-to-r from-[#A65B6E] via-[#8C4F5F] to-[#73404D] bg-clip-text text-transparent">
+            คนเก่งของเค้า
+          </span>
+        </h1>
+
+        <div class="mt-8 max-w-xl text-base font-light leading-relaxed text-[#5C4F53] sm:text-lg sm:leading-loose">
+          <p class="font-normal text-[#3E3437]">
+            วันนี้อาจเป็นวันที่ร่างกายของเธอเหนื่อยโดนแดดมาทั้งวันน ทำงานหนัห
+          </p>
+          <p class="mt-1 text-[#876E74]">แต่ไม่เป็นไรนะ</p>
+
+          <div class="my-5 flex items-center justify-center gap-2 text-[#D2B5BC]">
+            <span class="h-px w-8 bg-[#E6D4D8]"></span>
+            <svg class="h-3 w-3 fill-[#E6D4D8]" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="h-px w-8 bg-[#E6D4D8]"></span>
+          </div>
+
+          <div class="space-y-1 text-[#4A3E42]">
+            <p>เค้าอยากให้เธอพักเยอะๆ</p>
+            <p>กินข้าวให้ครบ</p>
+            <p>ดื่มน้ำเยอะๆ</p>
+            <p>อย่าลืมกืนยาด้วยนะ</p>
+          </div>
+
+          <p class="mt-5 text-[#876E74]">
+            เดี๋ยวทุกอย่างก็ค่อยๆ ดีขึ้น
+          </p>
+
+          <div class="mt-5 rounded-2xl bg-[#FFF6F8]/80 p-4 border border-[#F2DEE3]/70 backdrop-blur-xs">
+            <p className="font-medium text-[#7D4554]">
+              เพราะคนเก่งของเค้า
+            </p>
+            <p className="text-[#6D3D4A]">
+              เก่งมากพอที่จะผ่านมันไปได้เสมอ
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <a href="#message" class="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/80 bg-gradient-to-r from-[#B06B7D] to-[#9E576A] px-8 py-3.5 text-sm font-medium text-white shadow-[0_12px_30px_-6px_rgba(176,107,125,0.45)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_18px_36px_-6px_rgba(176,107,125,0.55)] active:scale-95 no-underline cursor-pointer">
+            <span class="relative tracking-wide">อ่านข้อความจากเค้า</span>
+            <svg class="relative h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="absolute bottom-6 flex flex-col items-center gap-1 opacity-50 transition-opacity hover:opacity-90">
+          <span class="text-[10px] font-medium tracking-widest text-[#9C848A] uppercase">
+            เลื่อนลงเพื่ออ่านต่อ
+          </span>
+          <svg class="h-3.5 w-3.5 animate-bounce text-[#9C848A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+      </section>
+
+      <section id="message" class="relative w-full max-w-4xl px-6 py-24 sm:px-8">
+        <div class="glass-panel relative overflow-hidden rounded-[36px] p-8 sm:p-14 md:p-16 text-center">
+          <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90"></div>
+          <div class="absolute -top-24 -right-24 h-64 w-64 rounded-full pointer-events-none"
+            style="background: radial-gradient(circle, rgba(254, 224, 231, 0.7) 0%, transparent 70%);"></div>
+
+          <div class="inline-flex items-center gap-1.5 text-xs font-medium tracking-widest text-[#B37886] uppercase">
+            <svg class="h-3.5 w-3.5 text-[#B37886]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+            </svg>
+            <span>Special Note</span>
+          </div>
+
+          <h2 class="mt-4 text-2xl font-semibold tracking-tight text-[#2D2427] sm:text-4xl">
+            มีอะไรอยากบอกเธอ
+          </h2>
+
+          <div class="mx-auto my-8 h-px w-20 bg-gradient-to-r from-transparent via-[#E2CED3] to-transparent"></div>
+
+          <div class="mx-auto max-w-lg space-y-7 text-base font-light leading-relaxed text-[#514347] sm:text-lg sm:leading-loose">
+            <div>
+              <p>เค้ารู้ว่าช่วงนี้เธอคงไม่สบาย</p>
+              <p class="text-[#78666A]">ทั้งเหนื่อย ทั้งเพลีย</p>
+            </div>
+
+            <div class="text-sm font-medium tracking-wider text-[#A16775]">
+              แต่เค้าอยากให้รู้ไว้ว่า
+            </div>
+
+            <div>
+              <p>ไม่ว่าจะเป็นวันที่สดใส</p>
+              <p>หรือวันที่เธอไม่มีแรงเลย</p>
+            </div>
+
+            <div class="rounded-2xl bg-white/70 py-4 px-6 border border-white/90 shadow-xs">
+              <p class="text-lg font-medium text-[#8F4E60] sm:text-xl">
+                เค้าก็ยังอยู่ตรงนี้
+              </p>
+            </div>
+
+            <p class="text-base font-normal text-[#69585C]">
+              คอยเป็นกำลังใจให้เธอเสมอ
+            </p>
+
+            <div class="pt-2">
+              <p class="text-xs font-medium tracking-widest text-[#A87985] uppercase">
+                เพราะสำหรับเค้า
+              </p>
+              <p class="mt-2 text-xl font-medium tracking-tight text-[#2B2224] sm:text-2xl">
+                ความสุขของเธอ
+              </p>
+              <p class="text-xl font-semibold text-[#A85468] sm:text-2xl">
+                สำคัญมากจริงๆ
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-12 flex items-center justify-center gap-3 text-xs text-[#9B898E]">
+            <span class="h-1.5 w-1.5 rounded-full bg-[#DEC6CD]"></span>
+            <span>อยู่เคียงข้างเธอเสมอในทุกๆ วัน</span>
+            <span class="h-1.5 w-1.5 rounded-full bg-[#DEC6CD]"></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="promises" class="relative w-full max-w-6xl px-6 py-20 sm:px-8">
+        <div class="text-center mb-12">
+          <span class="text-xs font-medium tracking-widest text-[#AD7683] uppercase">
+            Gentle Reminders
+          </span>
+          <h2 class="mt-2 text-2xl font-semibold text-[#2D2326] sm:text-3xl">
+            สามสิ่งที่อยากฝากไว้ให้คนดี
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8">
+          <div class="glass-card group relative flex flex-col justify-between rounded-3xl p-8 sm:p-9 text-left">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#FBE8ED] text-[#A65B6E] transition-colors group-hover:bg-[#F7D8E0]">
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke-width="2"></circle>
+                    <polyline points="12 6 12 12 16 14" stroke-width="2"></polyline>
+                  </svg>
+                </div>
+                <span class="text-[11px] font-medium tracking-wider text-[#A87985] uppercase">
+                  Card 01
+                </span>
+              </div>
+
+              <div class="mt-8">
+                <h3 class="text-xl font-medium tracking-tight text-[#2B2325]">
+                  พักเยอะๆนะคะ
+                </h3>
+                <p class="mt-3 text-2xl font-semibold tracking-tight text-[#A8586C]">
+                  เค้าร้ากเธอออ
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-10 border-t border-[#F2E5E8] pt-5">
+              <p class="text-xs font-light text-[#7C6C70] leading-relaxed">
+                หลับตา พักผ่อน ทิ้งเรื่องวุ่นวายไว้ข้างหลังนะคนดี มีเค้ารักเธออยู่เสมอตรงนี้
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card group relative flex flex-col justify-between rounded-3xl p-8 sm:p-9 text-left">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F6ECE2] text-[#8C644E] transition-colors group-hover:bg-[#F2E2D4]">
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                  </svg>
+                </div>
+                <span class="text-[11px] font-medium tracking-wider text-[#A17C6C] uppercase">
+                  Card 02
+                </span>
+              </div>
+
+              <div class="mt-8">
+                <h3 class="text-xl font-medium tracking-tight text-[#2B2325]">
+                  กินข้าวใหีตรงเวลา
+                </h3>
+                <div class="mt-3 space-y-1.5 text-sm text-[#59494D]">
+                  <p>ถึงจะกินได้น้อยก็ไม่เป็นไร</p>
+                  <p class="font-medium text-[#7D4D36]">
+                    แต่ขอให้ได้กินก็พอ
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10 border-t border-[#F1E8DF] pt-5">
+              <p class="text-xs font-light text-[#7C6C70] leading-relaxed">
+                อย่าปล่อยให้ท้องว่างนะ ถึงแม้จะไม่ค่อยหิว ทานอะไรร้อนๆ สักนิดก็ยังดีนะ
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card group relative flex flex-col justify-between rounded-3xl p-8 sm:p-9 text-left">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F4E9EE] text-[#93526B] transition-colors group-hover:bg-[#EFDCE4]">
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke-width="2"></circle>
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" stroke-width="1.8"></polygon>
+                  </svg>
+                </div>
+                <span class="text-[11px] font-medium tracking-wider text-[#9E6E82] uppercase">
+                  Card 03
+                </span>
+              </div>
+
+              <div class="mt-8">
+                <h3 class="text-xl font-medium tracking-tight text-[#2B2325]">
+                  เค้าคอยอยู่ตรงนี้
+                </h3>
+                <div class="mt-3 space-y-1 text-sm text-[#5C4C51]">
+                  <p>ถ้าเหนื่อย</p>
+                  <p>ถ้าท้อ</p>
+                  <p>หรือแค่อยากมีคนอยู่ด้วย</p>
+                </div>
+                <p class="mt-3 text-base font-semibold text-[#93455E]">
+                  เค้ายังอยู่ตรงนี้เสมอ
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-10 border-t border-[#F0E4E9] pt-5">
+              <p class="text-xs font-light text-[#7C6C70] leading-relaxed">
+                ไม่ว่าเมื่อไหร่ ทักมาหาหรือโทรหาเค้าได้ตลอดเลยนะ เค้าพร้อมรับฟังเธอเสมอ
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative w-full max-w-4xl px-6 py-12 sm:px-8">
+        <div class="glass-panel mx-auto w-full max-w-2xl rounded-3xl p-6 sm:p-8">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#F0E6E9] pb-5">
+            <div>
+              <span class="text-xs font-medium tracking-widest text-[#B57C89] uppercase">
+                Care Checklist
+              </span>
+              <h3 class="mt-1 text-lg font-medium text-[#2C2426]">
+                เช็กลิสต์ดูแลตัวเองของคนเก่ง
+              </h3>
+            </div>
+            <div class="flex items-center gap-2 self-start sm:self-auto rounded-full bg-[#FAF3F5] px-3.5 py-1.5 text-xs font-medium text-[#7D5A64]">
+              <span>ทำแล้ว</span>
+              <span id="checklist-counter" class="font-semibold text-[#A8586C] tabular-nums">0</span>
+              <span>จาก 4 ข้อ</span>
+            </div>
+          </div>
+
+          <div class="mt-6 space-y-3">
+            <button onclick="toggleCheckItem(this)" type="button" class="check-item group flex w-full items-center justify-between rounded-2xl border border-[#F2E8EB] bg-white/60 p-4 text-left transition-all duration-300 hover:border-[#DEC5CD] hover:bg-white cursor-pointer">
+              <div class="flex items-center gap-3.5">
+                <div class="check-icon-box flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F9ECEF] text-[#8C606C] transition-colors">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 009-9c0-4.97-9-12-9-12S3 7.03 3 12a9 9 0 009 9z"></path></svg>
+                </div>
+                <div>
+                  <p class="check-title text-sm font-medium text-[#362C2E] transition-colors">ดื่มน้ำสะอาดบ่อยๆ</p>
+                  <p class="mt-0.5 text-xs text-[#87787C]">จิบน้ำอุ่นหรือน้ำอุณหภูมิห้องทีละนิดนะ</p>
+                </div>
+              </div>
+              <div class="check-box flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#D9C4CA] bg-white transition-all"></div>
+            </button>
+
+            <button onclick="toggleCheckItem(this)" type="button" class="check-item group flex w-full items-center justify-between rounded-2xl border border-[#F2E8EB] bg-white/60 p-4 text-left transition-all duration-300 hover:border-[#DEC5CD] hover:bg-white cursor-pointer">
+              <div class="flex items-center gap-3.5">
+                <div class="check-icon-box flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F9ECEF] text-[#8C606C] transition-colors">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                </div>
+                <div>
+                  <p class="check-title text-sm font-medium text-[#362C2E] transition-colors">กินข้าวให้ครบมื้อ</p>
+                  <p class="mt-0.5 text-xs text-[#87787C]">ถ้าเบื่ออาหาร ลองทานข้าวต้มหรือซุปร้อนๆ ก็ได้นะ</p>
+                </div>
+              </div>
+              <div class="check-box flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#D9C4CA] bg-white transition-all"></div>
+            </button>
+
+            <button onclick="toggleCheckItem(this)" type="button" class="check-item group flex w-full items-center justify-between rounded-2xl border border-[#F2E8EB] bg-white/60 p-4 text-left transition-all duration-300 hover:border-[#DEC5CD] hover:bg-white cursor-pointer">
+              <div class="flex items-center gap-3.5">
+                <div class="check-icon-box flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F9ECEF] text-[#8C606C] transition-colors">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <div>
+                  <p class="check-title text-sm font-medium text-[#362C2E] transition-colors">ทานยาให้ตรงเวลา</p>
+                  <p class="mt-0.5 text-xs text-[#87787C]">อย่าลืมทานยาตามที่คุณหมอบอกนะคนเก่ง</p>
+                </div>
+              </div>
+              <div class="check-box flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#D9C4CA] bg-white transition-all"></div>
+            </button>
+
+            <button onclick="toggleCheckItem(this)" type="button" class="check-item group flex w-full items-center justify-between rounded-2xl border border-[#F2E8EB] bg-white/60 p-4 text-left transition-all duration-300 hover:border-[#DEC5CD] hover:bg-white cursor-pointer">
+              <div class="flex items-center gap-3.5">
+                <div class="check-icon-box flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F9ECEF] text-[#8C606C] transition-colors">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </div>
+                <div>
+                  <p class="check-title text-sm font-medium text-[#362C2E] transition-colors">นอนหลับพักผ่อนให้เต็มอิ่ม</p>
+                  <p class="mt-0.5 text-xs text-[#87787C]">วางโทรศัพท์ หลับตา และปล่อยใจให้สบายนะคะ</p>
+                </div>
+              </div>
+              <div class="check-box flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#D9C4CA] bg-white transition-all"></div>
+            </button>
+          </div>
+
+          <div id="checklist-complete-msg" class="hidden mt-6 rounded-2xl border border-[#EACCD4] bg-[#FFF6F8] p-4 text-center">
+            <p class="text-sm font-medium text-[#8A4656]">
+              คนเก่งทำครบทุกข้อแล้ว เค้าภูมิใจในตัวเธอมากๆ เลยนะ
+            </p>
+            <p class="mt-1 text-xs text-[#9B6E7B]">
+              ตอนนี้พักผ่อนได้เต็มที่เลยนะคะ ฝันดีล่วงหน้านะ
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="letter" class="relative w-full max-w-3xl px-6 py-24 sm:px-8">
+        <div class="glass-panel relative rounded-[38px] p-8 sm:p-14 md:p-16 shadow-[0_25px_65px_-15px_rgba(205,175,183,0.35)]">
+          <div class="absolute top-0 inset-x-8 h-px bg-gradient-to-r from-transparent via-[#EAD6DB] to-transparent"></div>
+
+          <div class="text-center">
+            <span class="text-[11px] font-medium tracking-widest text-[#B57C8A] uppercase">
+              Love Letter
+            </span>
+            <h2 class="mt-2 text-2xl font-semibold tracking-tight text-[#2B2224] sm:text-3xl">
+              จากคนที่เป็นห่วงเธอที่สุด
+            </h2>
+            <div class="mx-auto mt-6 h-px w-16 bg-[#E8D4D8]"></div>
+          </div>
+
+          <div class="mt-10 space-y-6 text-center text-base font-light leading-relaxed text-[#4A3E42] sm:text-lg sm:leading-loose">
+            <div>
+              <p class="font-normal text-[#2F2528]">เค้าขอให้เธอหายไวๆ นะคะ</p>
+              <p class="text-xl font-medium text-[#A65B6E] sm:text-2xl mt-1">คนเก่งของเค้า</p>
+            </div>
+
+            <p class="text-[#6D5D61]">ค่อยๆ ดูแลตัวเองทีละนิด</p>
+
+            <div class="mx-auto max-w-xs rounded-2xl bg-white/70 py-4 px-6 border border-white/80 shadow-xs space-y-1.5 text-sm sm:text-base font-medium text-[#7A4553]">
+              <p>กินข้าวเยอะๆ</p>
+              <p>กินยาให้ตรงเวลา</p>
+              <p>พักผ่อนให้เพียงพอ</p>
+            </div>
+
+            <p class="pt-2 text-sm text-[#8A797D]">
+              ทุกวินาทีที่เธอพักผ่อน เค้าขอส่งพลังใจดีๆ ไปโอบกอดเธอเสมอนะคะ
+            </p>
+          </div>
+
+          <div class="mt-12 flex flex-col items-center border-t border-[#F2E4E8] pt-8 text-center">
+            <button id="warmth-btn" onclick="sendWarmth()" type="button" class="group relative inline-flex items-center gap-2.5 rounded-full border border-[#E8CED4] bg-white/85 px-6 py-2.5 text-xs font-medium text-[#8F4E60] shadow-xs transition-all duration-300 hover:border-[#D6AAB4] hover:bg-white hover:shadow-md active:scale-95 cursor-pointer">
+              <svg id="warmth-heart" class="h-4 w-4 text-[#A8586C] transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+              <span id="warmth-btn-label">กดเพื่อส่งความคิดถึงกลับไป</span>
+              <span id="warmth-count-badge" class="hidden ml-1 rounded-full bg-[#FAF0F3] px-2 py-0.5 text-[10px] font-semibold text-[#A8586C] tabular-nums">0</span>
+            </button>
+
+            <div id="warmth-toast" class="hidden mt-3 text-xs font-medium text-[#8F4E60] transition-opacity">
+              ความอบอุ่นและกำลังใจถูกส่งไปหาเธอเรียบร้อยแล้วนะคะ
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="w-full border-t border-white/50 bg-[#FAF8F5]/80 py-12 text-center backdrop-blur-md">
+        <div class="mx-auto max-w-4xl px-6 sm:px-8">
+          <div class="flex items-center justify-center gap-2 text-xs font-medium tracking-widest text-[#9C7A83] uppercase">
+            <svg class="h-3 w-3 fill-[#A65B6E] text-[#A65B6E]" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span>Made with love</span>
+          </div>
+          <p class="mt-3 text-[11px] text-[#A6979B]">
+            มอบให้เธอด้วยความห่วงใยและรักทั้งหมดที่มี
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      const mouseGlow = document.getElementById('mouse-glow');
+      window.addEventListener('mousemove', function(e) {
+        if (!mouseGlow) return;
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        mouseGlow.style.left = x + '%';
+        mouseGlow.style.top = y + '%';
+      }, { passive: true });
+
+      let checkedCount = 0;
+      function toggleCheckItem(button) {
+        const isChecked = button.classList.contains('is-checked');
+        const iconBox = button.querySelector('.check-icon-box');
+        const title = button.querySelector('.check-title');
+        const box = button.querySelector('.check-box');
+
+        if (!isChecked) {
+          button.classList.add('is-checked', 'border-[#E8CDD4]', 'bg-[#FFF8FA]', 'shadow-xs');
+          button.classList.remove('border-[#F2E8EB]', 'bg-white/60');
+          iconBox.classList.add('bg-[#A8586C]', 'text-white');
+          iconBox.classList.remove('bg-[#F9ECEF]', 'text-[#8C606C]');
+          title.classList.add('text-[#8C4A5A]', 'line-through');
+          title.classList.remove('text-[#362C2E]');
+          box.classList.add('border-[#A8586C]', 'bg-[#A8586C]', 'text-white');
+          box.innerHTML = '<svg class="h-3.5 w-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>';
+          checkedCount++;
+        } else {
+          button.classList.remove('is-checked', 'border-[#E8CDD4]', 'bg-[#FFF8FA]', 'shadow-xs');
+          button.classList.add('border-[#F2E8EB]', 'bg-white/60');
+          iconBox.classList.remove('bg-[#A8586C]', 'text-white');
+          iconBox.classList.add('bg-[#F9ECEF]', 'text-[#8C606C]');
+          title.classList.remove('text-[#8C4A5A]', 'line-through');
+          title.classList.add('text-[#362C2E]');
+          box.classList.remove('border-[#A8586C]', 'bg-[#A8586C]', 'text-white');
+          box.innerHTML = '';
+          checkedCount--;
+        }
+
+        document.getElementById('checklist-counter').textContent = checkedCount;
+        const completeMsg = document.getElementById('checklist-complete-msg');
+        if (checkedCount === 4) {
+          completeMsg.classList.remove('hidden');
+        } else {
+          completeMsg.classList.add('hidden');
+        }
+      }
+
+      let warmthCount = 0;
+      let toastTimeout = null;
+      function sendWarmth() {
+        warmthCount++;
+        const badge = document.getElementById('warmth-count-badge');
+        const heart = document.getElementById('warmth-heart');
+        const label = document.getElementById('warmth-btn-label');
+        const toast = document.getElementById('warmth-toast');
+
+        badge.textContent = warmthCount;
+        badge.classList.remove('hidden');
+
+        heart.classList.add('scale-125', 'fill-[#A8586C]');
+        label.textContent = 'ส่งกำลังใจไปถึงเธอแล้ว';
+
+        toast.classList.remove('hidden');
+
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          heart.classList.remove('scale-125');
+          toast.classList.add('hidden');
+          label.textContent = 'กดเพื่อส่งความคิดถึงกลับไป';
+        }, 3000);
+      }
+
+      let audioCtx = null;
+      let musicInterval = null;
+      let isPlaying = false;
+
+      const notes = [261.63, 329.63, 349.23, 392.00, 440.00, 523.25, 587.33, 659.25];
+      const chords = [
+        [261.63, 329.63, 392.00, 523.25],
+        [220.00, 261.63, 329.63, 440.00],
+        [174.61, 261.63, 349.23, 523.25],
+        [196.00, 246.94, 293.66, 392.00]
+      ];
+
+      function playChime(freq, delay, duration) {
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime + delay;
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        const harmonic = audioCtx.createOscillator();
+        const harmonicGain = audioCtx.createGain();
+        const filter = audioCtx.createBiquadFilter();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        harmonic.type = 'triangle';
+        harmonic.frequency.setValueAtTime(freq * 2, now);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(800, now);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.linearRampToValueAtTime(0.045, now + 0.3);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        harmonicGain.gain.setValueAtTime(0.0001, now);
+        harmonicGain.gain.linearRampToValueAtTime(0.008, now + 0.2);
+        harmonicGain.gain.exponentialRampToValueAtTime(0.0001, now + duration * 0.7);
+
+        osc.connect(gain);
+        harmonic.connect(harmonicGain);
+        gain.connect(filter);
+        harmonicGain.connect(filter);
+        filter.connect(audioCtx.destination);
+
+        osc.start(now);
+        harmonic.start(now);
+        osc.stop(now + duration + 0.1);
+        harmonic.stop(now + duration + 0.1);
+      }
+
+      function startAudio() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        if (!audioCtx) audioCtx = new AudioContextClass();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        isPlaying = true;
+        let chordIndex = 0;
+
+        const step = () => {
+          const currentChord = chords[chordIndex % chords.length];
+          currentChord.forEach((freq, idx) => {
+            playChime(freq, idx * 0.25, 4.0);
+          });
+          const randomNote = notes[Math.floor(Math.random() * notes.length)];
+          playChime(randomNote, 1.4, 3.2);
+          chordIndex++;
+        };
+
+        step();
+        musicInterval = setInterval(step, 4800);
+
+        document.getElementById('audio-label').textContent = 'ดนตรีเปิดอยู่';
+        document.getElementById('audio-icon').innerHTML = '<svg class="h-3.5 w-3.5 text-[#A86475]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+      }
+
+      function stopAudio() {
+        if (musicInterval) {
+          clearInterval(musicInterval);
+          musicInterval = null;
+        }
+        if (audioCtx && audioCtx.state === 'running') {
+          audioCtx.suspend();
+        }
+        isPlaying = false;
+        document.getElementById('audio-label').textContent = 'เปิดเสียงบรรเลง';
+        document.getElementById('audio-icon').innerHTML = '<svg class="h-3.5 w-3.5 text-[#9E9094]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+      }
+
+      document.getElementById('audio-toggle-btn').addEventListener('click', function() {
+        if (isPlaying) {
+          stopAudio();
+        } else {
+          startAudio();
+        }
+      });
+    </script>
   </body>
 </html>
-
